@@ -117,10 +117,5 @@ $(document).ready(function() {
     return false;
   });
 
- 
-
 });
 
-function view_details(){
-  window.location.href = ""
-}
