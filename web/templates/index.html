@@ -90,38 +90,6 @@
     <!-- About -->
 
     <section class="about" id="about">
-<<<<<<< HEAD
-      <div class="container">
-        <h2><span>饮料</span></h2>
-        <p class="view_more"><a href="/q/?type_id=''">MORE 查看更多</a></p>
-        <div class="row stats-row">
-          <div class="stats-col text-center col-md-4 col-sm-8">
-              <img src="../static/img/drink/timg.jpg" width="100%" alt="">
-          </div>
-          <div class="stats-col text-center col-md-4 col-sm-8">
-                <img src="../static/img/drink/timg.jpg" width="100%" alt="">
-          </div>
-          <div class="stats-col text-center col-md-4 col-sm-8">
-                <img src="../static/img/drink/timg.jpg" width="100%" alt="">
-          </div>
-          
-        </div>
-        
-      </div>
-      <div class="container">
-            <h2><span>美食</span></h2>
-            <p class="view_more"><a href="javascriopt:;">MORE 查看更多</a></p>
-            <div class="row stats-row">
-              <div class="stats-col text-center col-md-4 col-sm-8">
-                  <img src="../static/img/food/food.jpg" width="100%" alt="">
-              </div>
-              <div class="stats-col text-center col-md-4 col-sm-8">
-                    <img src="../static/img/food/food.jpg" width="100%" alt="">
-              </div>
-              <div class="stats-col text-center col-md-4 col-sm-8">
-                    <img src="../static/img/food/food.jpg" width="100%" alt="">
-              </div>
-=======
       {% for type in types %}
         <div class="container">
           <h2>{{ type.name }}</h2>
@@ -129,7 +97,6 @@
             {% for shop in type.shops %}
             <div class="stats-col text-center col-md-4 col-sm-8">
                 <a href="{{ shop.url }}"><img src="{{ shop.img }}" width="100%" alt=""></a>
->>>>>>> e85fb380becad70d0d646b20aa49e32f3c40b778
             </div>
             {% endfor %}
           </div>
