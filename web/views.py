@@ -38,7 +38,7 @@ def query(req):
         "type_id": type_id,
         "types": types
     }
-    return render_to_response("shops.html", result, RequestContext(req))
+    return render_to_response("detail.html", result, RequestContext(req))
 
 
 def detail(req, shop_id):
