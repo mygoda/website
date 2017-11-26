@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from web.views import index, detail
+from web.views import index, detail, query
 
 URL_ID = "(?P<shop_id>[0-9]+)"
 
@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
     url(r'^shops/%s/$' % URL_ID, detail),
+    url(r'^q/$', query),
 ]
