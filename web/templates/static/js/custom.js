@@ -3,6 +3,7 @@ $(document).ready(function() {
 
   // Smooth scrolling
   $(function() {
+  
     $('a[href*="#"]:not([href="#"])').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
         var target = $(this.hash);
@@ -116,4 +117,10 @@ $(document).ready(function() {
     return false;
   });
 
+ 
+
 });
+
+function view_details(){
+  window.location.href = ""
+}
