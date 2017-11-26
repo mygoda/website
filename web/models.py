@@ -43,6 +43,10 @@ class Type(models.Model):
             "shops": [shop.to_json() for shop in self.shops()]
         }
 
+    class Meta:
+        verbose_name = '店铺类型'
+        verbose_name_plural = '店铺类型'
+
 
 class Shop(models.Model):
     """
