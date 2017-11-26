@@ -53,13 +53,13 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                       <div class="item active">
-                        <img src="../static/img/cover.jpg" width="100%" alt="banner1">
+                        <img src="/static/img/cover.jpg" width="100%" alt="banner1">
                       </div>
                       <div class="item">
-                        <img src="../static/img/gadgets.png" width="100%" alt="banner2">
+                        <img src="/static/img/gadgets.png" width="100%" alt="banner2">
                       </div>
                       <div class="item">
-                        <img src="../static/img/parallax-bg.jpg" width="100%" alt="banner3">
+                        <img src="/static/img/parallax-bg.jpg" width="100%" alt="banner3">
                       </div>
                     </div>
                   
@@ -90,60 +90,34 @@
     <!-- About -->
 
     <section class="about" id="about">
-      <div class="container">
-        <h2><span>饮料</span></h2>
-        <p class="view_more"><a href="/q/?type_id=''">MORE 查看更多</a></p>
-        <div class="row stats-row">
-          <div class="stats-col text-center col-md-4 col-sm-8">
-              <img src="/static/img/drink/timg.jpg" width="100%" alt="">
-          </div>
-          <div class="stats-col text-center col-md-4 col-sm-8">
-                <img src="/static/img/drink/timg.jpg" width="100%" alt="">
-          </div>
-          <div class="stats-col text-center col-md-4 col-sm-8">
-                <img src="/static/img/drink/timg.jpg" width="100%" alt="">
-          </div>
-          
-        </div>
-        
-      </div>
-      <div class="container">
-            <h2><span>美食</span></h2>
-            <p class="view_more"><a href="javascriopt:;">MORE 查看更多</a></p>
-            <div class="row stats-row">
-              <div class="stats-col text-center col-md-4 col-sm-8">
-                  <img src="/static/img/food/food.jpg" width="100%" alt="">
-              </div>
-              <div class="stats-col text-center col-md-4 col-sm-8">
-                    <img src="/static/img/food/food.jpg" width="100%" alt="">
-              </div>
-              <div class="stats-col text-center col-md-4 col-sm-8">
-                    <img src="/static/img/food/food.jpg" width="100%" alt="">
-              </div>
+      {% for type in types %}
+        <div class="container">
+          <h2>{{ type.name }}</h2>
+          <div class="row stats-row">
+            {% for shop in type.shops %}
+            <div class="stats-col text-center col-md-4 col-sm-8">
+                <a href="{{ shop.url }}"><img src="{{ shop.img }}" width="100%" alt=""></a>
             </div>
+            {% endfor %}
+          </div>
+          <p class="view_more"><a href="javascriopt:;">查看更多</a></p>
         </div>
-
-          <div class="container">
-                <h2><span>酒水</span></h2>
-                <p class="view_more"><a href="javascriopt:;">MORE 查看更多</a></p>
-                <div class="row stats-row">
-                  <div class="stats-col text-center col-md-4 col-sm-8">
-                      <img src="../static/img/drink/wine.jpg" width="100%" alt="">
-                  </div>
-                  <div class="stats-col text-center col-md-4 col-sm-8">
-                        <img src="../static/img/drink/wine.jpg" width="100%" alt="">
-                  </div>
-                  <div class="stats-col text-center col-md-4 col-sm-8">
-                        <img src="../static/img/drink/wine.jpg" width="100%" alt="">
-                  </div>
-                </div>
-            </div>
-    </section>
-    <!-- /About -->
-   
-   
-    
-    <!-- @component: footer -->
+      {% endfor %}
+      <!--<div class="container">-->
+          <!--<h2><span>美食</span></h2>-->
+          <!--<p class="view_more"><a href="javascriopt:;">MORE 查看更多</a></p>-->
+          <!--<div class="row stats-row">-->
+            <!--<div class="stats-col text-center col-md-4 col-sm-8">-->
+                <!--<img src="/static/img/food/food.jpg" width="100%" alt="">-->
+            <!--</div>-->
+            <!--<div class="stats-col text-center col-md-4 col-sm-8">-->
+                  <!--<img src="/static/img/food/food.jpg" width="100%" alt="">-->
+            <!--</div>-->
+            <!--<div class="stats-col text-center col-md-4 col-sm-8">-->
+                  <!--<img src="/static/img/food/food.jpg" width="100%" alt="">-->
+            <!--</div>-->
+          <!--</div>-->
+      <!--</div>-->
 
     <section id="contact">
       <div class="container">
@@ -212,7 +186,7 @@
             <div class="col-lg-6 col-xs-12 text-lg-right text-center">
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a href="index.html">首页</a>
+                  <a href="/">首页</a>
                 </li>
 
                 <li class="list-inline-item">
@@ -220,15 +194,11 @@
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#features">特性</a>
+                  <a href="#features">特色</a>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#portfolio">作品</a>
-                </li>
-
-                <li class="list-inline-item">
-                  <a href="#team">团队</a>
+                  <a href="#">地址</a>
                 </li>
 
                 <li class="list-inline-item">

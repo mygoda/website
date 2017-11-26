@@ -38,9 +38,10 @@ class Type(models.Model):
         return self.shop_set.all()
 
     def to_json(self):
+        index_shops = self.shops()[:3]
         return {
             "name": self.name,
-            "shops": [shop.to_json() for shop in self.shops()]
+            "shops": [shop.to_json() for shop in index_shops]
         }
 
     class Meta:
