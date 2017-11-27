@@ -59,7 +59,7 @@ class Shop(models.Model):
     type = models.ForeignKey(Type, verbose_name=u"类型")
     pri = models.IntegerField(u"优先级", default=0, help_text=u"数字越小，优先级越高")
     img = models.CharField(u"图片", max_length=255, null=True, blank=True)
-    desc = models.TextField(u"详细描述", null=True, blank=True)
+    desc = models.TextField(u"详细描述", null=True, blank=True, help_text=u"目前是公众账号跳转连接")
 
     def __str__(self):
         return self.name

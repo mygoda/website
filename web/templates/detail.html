@@ -2,21 +2,17 @@
 <html lang="zh">
   <head>
     <meta charset="utf-8">
-    <title>我要程序猿 - 51programmers.com</title>
+    <title>美食专区</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
     <link href="../static/img/favicon.ico" rel="icon">
   
-    <!-- Bootstrap CSS File -->
     <link href="../static/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
   
-    <!-- Libraries CSS Files -->
     <link href="../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     
-    <!-- Main Stylesheet File -->
     <link href="../static/css/style.css" rel="stylesheet">
     
   </head>
@@ -30,53 +26,38 @@
     <div class="container">
     
       <div id="logo" class="pull-left">
-        <!-- <a href="index.html"><img src="http://igeekbar.com/igeekbar/networks/assets/img/logo.png" alt="" title="" /></img></a> -->
-        <!-- Uncomment below if you prefer to use a text image -->
-        <h1><a href="#">GEEK CLUB</a></h1>
+        <h1><a href="/">美食广场</a></h1>
       </div>
-        
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="#about">关于我们</a></li>
-          <li><a href="#features">领域</a></li>
-          <li><a href="#portfolio">作品</a></li>
-          <li><a href="#team">团队</a></li>
-          <li class="menu-has-children"><a href="">产品</a>
-            <ul>
-              <li><a href="#">产品分类</a></li>
-              <li class="menu-has-children"><a href="#">产品分类</a>
-                <ul>
-                  <li><a href="#">产品分类1</a></li>
-                  <li><a href="#">产品分类2</a></li>
-                </ul>
-              </li>
-              <li><a href="#">产品分类3</a></li>
-              <li><a href="#">产品分类4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">联系</a></li>
+          <li><a href="#">美食专区</a></li>
+          <li><a href="#contact">联系我们</a></li>
         </ul>
-      </nav><!-- #nav-menu-container -->
+      </nav>
+
       <nav class="nav social-nav pull-right hidden-sm-down">
         <a href="#"><i class="fa fa-weixin"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-envelope"></i></a>
       </nav>
     </div>
   </header><!-- #header -->
    <!-- filter -->
    <section>
-   <div class="details_type container">
-    <label class="pull-left">类型：</label>
-    <ul class="pull-left food_details_type">
-        <li class="active">酒水</li>
-        <li>美食</li>
-        <li>饮料</li>
-    </ul>
-    </div>
-</section>
+       <div class="details_type container">
+        <label class="pull-left">类型：</label>
+            <ul class="pull-left food_details_type">
+                {% for item in types %}
+                    {% if item.id in active %}
+                        <li class="active" onclick='goFilter("{{ item.id }}")' value="{{ item.id }}">{{ item.name }}</li>
+                    {% else %}
+                        <li onclick='goFilter("{{ item.id }}")'>{{ item.name }}</li>
+                    {% endif %}
+                {% endfor %}
+{#                <li class="active">酒水</li>#}
+{#                <li>美食</li>#}
+{#                <li>饮料</li>#}
+            </ul>
+        </div>
+   </section>
  
     <!-- filter -->
     
@@ -86,131 +67,41 @@
     <section class="about" id="about">
       <div class="container">
         <div class="row stats-row">
-          <div class="stats-col text-center col-md-3 col-sm-6">
-              <img src="../static/img/drink/timg.jpg" width="100%" alt="">
-              <p class="introduce_text">产品介绍</p>
-            </div>
-          <div class="stats-col text-center col-md-3 col-sm-6">
-                <img src="../static/img/drink/timg.jpg" width="100%" alt="">
-                <p class="introduce_text">产品介绍</p>
-          </div>
-          <div class="stats-col text-center col-md-3 col-sm-6">
-                <img src="../static/img/drink/timg.jpg" width="100%" alt="">
-                <p class="introduce_text">产品介绍</p>
-          </div>
-          <div class="stats-col text-center col-md-3 col-sm-6">
-                <img src="../static/img/drink/timg.jpg" width="100%" alt="">
-                <p class="introduce_text">产品介绍</p>
-          </div>
-          
+            {% for shop in shops %}
+              <div class="stats-col text-center col-md-3 col-sm-6" onclick="goDetail('{{ shop.desc }}')">
+                  <img src="{{ shop.img }}" width="100%" alt="">
+                  <p class="introduce_text">{{ shop.name }}</p>
+              </div>
+            {% endfor %}
         </div>
       </div>
 
-    </section>
-    <!-- /About -->
-   
-   
-    
-    <!-- @component: footer -->
-
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h2 class="section-title">联系</h2>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-lg-3 offset-lg-2">
-            <div class="info">
-              <div>
-                <i class="fa fa-map-marker"></i>
-                <p>海淀区<br>永定路甲四号院</p>
-              </div>
-              
-              <div>
-                <i class="fa fa-envelope"></i>
-                <p>info@51programmers.com</p>
-              </div>
-              
-              <div>
-                <i class="fa fa-phone"></i>
-                <p>+86 6677889900</p>
-              </div>
-              
-            </div>
-          </div>
-          
-          <div class="col-lg-5">
-            <div class="form">
-              <div id="sendmessage">感谢发送您的反馈</div>
-              <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
-                  <div class="form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="名字" data-rule="minlen:4" data-msg="输入至少8个字符" />
-                    <div class="validation"></div>
-                  </div>
-                  <div class="form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="邮件" data-rule="email" data-msg="输入邮件" />
-                    <div class="validation"></div>
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="主题" data-rule="minlen:4" data-msg="输入至少8个字符" />
-                    <div class="validation"></div>
-                  </div>
-                  <div class="form-group">
-
-                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="反馈内容" placeholder="反馈内容"></textarea>
-                    <div class="validation"></div>
-                  </div>
-                  <div class="text-center"><button type="submit">发送</button></div>
-              </form>
-            </div>
-          </div>
-          
-        </div>
-      </div>
     </section>
       
     <footer class="site-footer">
       <div class="bottom">
         <div class="container">
           <div class="row">
-
-            <div class="col-lg-6 col-xs-12 text-lg-left text-center">
-              <p class="copyright-text">
-                © 2017 我要程序猿
-              </p>
-              <div class="credits">
-                <a href="https://igeekbar.com/">51programmers.com</a>
-              </div>
-            </div>
-            
             <div class="col-lg-6 col-xs-12 text-lg-right text-center">
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a href="index.html">首页</a>
+                  <a href="/">首页</a>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#about">关于</a>
+                  <a href="/">关于</a>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#features">特性</a>
+                  <a href="/">特色</a>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#portfolio">作品</a>
+                  <a href="/">地址</a>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#team">团队</a>
-                </li>
-
-                <li class="list-inline-item">
-                  <a href="#contact">联系</a>
+                  <a href="/">联系</a>
                 </li>
               </ul>
             </div>
@@ -220,8 +111,6 @@
       </div>
     </footer>
     <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a> <!-- JavaScript
-
-
     <!-- Required JavaScript Libraries -->
     <script src="../static/lib/jquery/jquery.min.js"></script>
     <script src="../static/lib/superfish/hoverIntent.js"></script>
@@ -238,6 +127,19 @@
     
     <!-- Template Specisifc Custom Javascript File -->
     <script src="../static/js/custom.js"></script>
+    <script>
+
+        function goFilter(type_id) {
+            console.log("go type " + type_id)
+            window.location.href = "/q/?type_id=" + type_id;
+        }
+
+        function goDetail(url) {
+            console.log("go detail " + url)
+            window.location.href = url;
+        }
+
+    </script>
     
   </body>
 </html>

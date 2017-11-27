@@ -21,6 +21,7 @@ def index(req):
         "banners": [banner.to_json() for banner in banners],
         "types": type_shops
     }
+    print(result)
     return render_to_response("index.html", result, RequestContext(req))
 
 
@@ -31,13 +32,18 @@ def query(req):
     :return:
     """
     type_id = req.GET.get("type_id")
+    if not type_id:
+        type_id = Type.objects.all()[0].id
+    else:
+        type_id = int(type_id)
     shops = Shop.objects.filter(type_id=type_id)
     types = Type.objects.all()
     result = {
         "shops": shops,
-        "type_id": type_id,
+        "active": {type_id: True},
         "types": types
     }
+    print(result)
     return render_to_response("detail.html", result, RequestContext(req))
 
 
