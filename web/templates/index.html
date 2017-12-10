@@ -15,15 +15,29 @@
     
     <!-- Main Stylesheet File -->
     <link href="../static/css/style.css" rel="stylesheet">
-    
+
+
+      <script src="../static/lib/jquery/jquery.min.js"></script>
+{#    <script src="../static/lib/superfish/hoverIntent.js"></script>#}
+{#    <script src="../static/lib/superfish/superfish.min.js"></script>#}
+{#    <script src="../static/lib/tether/js/tether.min.js"></script>#}
+{#    <script src="../static/lib/stellar/stellar.min.js"></script>#}
+    <script src="../static/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+{#    <script src="../static/lib/counterup/counterup.min.js"></script>#}
+{#    <script src="../static/lib/waypoints/waypoints.min.js"></script>#}
+{#    <script src="../static/lib/easing/easing.js"></script>#}
+{#    <script src="../static/lib/stickyjs/sticky.js"></script>#}
+{#    <script src="../static/lib/parallax/parallax.js"></script>#}
+{#    <script src="../static/lib/lockfixed/lockfixed.min.js"></script>#}
+
+    <!-- Template Specisifc Custom Javascript File -->
+    <script src="../static/js/custom.js"></script>
   </head>
 
   <body>
-
-     <!-- Header -->
+  <!-- Header -->
   <header id="header">
     <div class="container">
-    
       <div id="logo" class="pull-left">
         <h1><a href="#">美食广场</a></h1>
       </div>
@@ -33,43 +47,45 @@
           <li><a href="#contact">联系我们</a></li>
         </ul>
       </nav>
-      
       <nav class="nav social-nav pull-right hidden-sm-down">
         <a href="#"><i class="fa fa-weixin"></i></a>
       </nav>
     </div>
-  </header><!-- #header -->
-  
+  </header>
+  <!-- #header -->
     <section class="hero">
       <div class="container text-center">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                        <img src="/static/img/gadgets.png" width="100%" alt="banner2">
-                        </div>
-                      <div class="item">
-                        <img src="/static/img/parallax-bg.jpg" width="100%" alt="banner3">
-                      </div>
-                    </div>
-                  
-                  <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                  </div>
-                
+           <div id="myCarousel" class="carousel slide">
+	<!-- 轮播（Carousel）指标 -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	<!-- 轮播（Carousel）项目 -->
+	<div class="carousel-inner">
+		<div class="item active">
+			<img src="../static/img/banner/banner1.jpg" width="100%" alt="First slide">
+		</div>
+		<div class="item">
+			<img src="../static/img/banner/banner1.jpg" width="100%" alt="Second slide">
+		</div>
+		<div class="item">
+			<img src="../static/img/banner/banner1.jpg" width="100%" alt="Third slide">
+		</div>
+	</div>
+	<!-- 轮播（Carousel）导航 -->
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
         <div class="row">
           <div class="col-md-12">
           	<!--
@@ -89,6 +105,7 @@
       {% for type in types %}
         <div class="container">
           <h2>{{ type.name }}</h2>
+          <p class="view_more"><a href="/q/?type_id={{ type.id }}">>>查看更多</a></p>
           <div class="row stats-row">
             {% for shop in type.shops %}
             <div class="stats-col text-center col-md-4 col-sm-8">
@@ -96,69 +113,56 @@
             </div>
             {% endfor %}
           </div>
-          <p class="view_more"><a href="/q/?type_id={{ type.id }}">查看更多</a></p>
+
         </div>
       {% endfor %}
-      <!--<div class="container">-->
-          <!--<h2><span>美食</span></h2>-->
-          <!--<p class="view_more"><a href="javascriopt:;">MORE 查看更多</a></p>-->
-          <!--<div class="row stats-row">-->
-            <!--<div class="stats-col text-center col-md-4 col-sm-8">-->
-                <!--<img src="/static/img/food/food.jpg" width="100%" alt="">-->
-            <!--</div>-->
-            <!--<div class="stats-col text-center col-md-4 col-sm-8">-->
-                  <!--<img src="/static/img/food/food.jpg" width="100%" alt="">-->
-            <!--</div>-->
-            <!--<div class="stats-col text-center col-md-4 col-sm-8">-->
-                  <!--<img src="/static/img/food/food.jpg" width="100%" alt="">-->
-            <!--</div>-->
-          <!--</div>-->
-      <!--</div>-->
+    </section>
 
     <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="section-title">联系</h2>
+            <h2 class="section-title">联系我们</h2>
           </div>
         </div>
         
         <div class="row">
-          <div class="col-lg-3 offset-lg-2">
+
+          <div class="col-lg-4">
             <div class="info">
+                <p class="company_name">北京aaa餐饮有限公司</p>
+              <ul class="clearfix">
+                <li><label>电话：</label>+86 6677889900</li>
+{#                <i class="fa fa-envelope"></i>#}
+                <li><label>邮箱：</label>info@51programmers.com</li>
+              </ul>
               <div>
-                <i class="fa fa-map-marker"></i>
-                <p>海淀区<br>永定路甲四号院</p>
+{#                <i class="fa fa-map-marker"></i>#}
+                <p>
+                    <label class="pull-left address_label">地址：</label>
+                    <span class="pull-left" style="width:80%;">北京市海淀区四季青镇蓝靛厂路甲四号院2号楼1层108室</span>
+                </p>
               </div>
-              
-              <div>
-                <i class="fa fa-envelope"></i>
-                <p>info@51programmers.com</p>
-              </div>
-              
-              <div>
-                <i class="fa fa-phone"></i>
-                <p>+86 6677889900</p>
-              </div>
-              
             </div>
           </div>
-          
-          <div class="col-lg-5">
+          <div class="col-lg-4 offset-lg-3">
+             <img src="../static/img/address.jpg" width="100%" alt="">
+            </div>
+          <div class="col-lg-4">
             <div class="form">
               <div id="sendmessage">感谢发送您的反馈</div>
               <div id="errormessage"></div>
               <form action="" method="post" role="form" class="contactForm">
                   <div class="form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="名字" data-rule="minlen:4" data-msg="输入至少8个字符" />
+                    <input type="text" name="name" class="form-control" id="name" placeholder="您的名字" data-rule="minlen:4" data-msg="输入至少8个字符" />
                     <div class="validation"></div>
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="邮件" data-rule="email" data-msg="输入邮件" />
+                    <input type="phone" class="form-control" name="phone" id="pheon" placeholder="联系电话" data-rule="phone" data-msg="输入联系电话" />
                     <div class="validation"></div>
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="主题" data-rule="minlen:4" data-msg="输入至少8个字符" />
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="邮件主题" data-rule="minlen:4" data-msg="输入至少8个字符" />
                     <div class="validation"></div>
                   </div>
                   <div class="form-group">
@@ -179,28 +183,29 @@
       <div class="bottom">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+            <div class="col-lg-12 col-xs-12 text-lg-right text-center">
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a href="/">首页</a>
+                  <a href="javascript:;" class="contact" title="联系我们"></a>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#about">关于</a>
+                  <a href="javascript:;" class="tell" title="电话"></a>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#features">特色</a>
+                  <a href="javascript:;" class="weixin" title="微信公众号"></a>
+                  <div class="weixin_code">
+                      <span class="weiixn_code_title">微信公众号</span>
+                      <img class="weixin_img" src="../static/img/icon/WXjpg.png" width="100%">
+                  </div>
                 </li>
 
                 <li class="list-inline-item">
-                  <a href="#">地址</a>
-                </li>
-
-                <li class="list-inline-item">
-                  <a href="#contact">联系</a>
+                  <a href="javascript:;" class="weibo"  title="微博"></a>
                 </li>
               </ul>
+              <p>Copyright©2016   北京&&信息技术有限公司  版权所有   京ICP备14045334号-1  京公网安备11010502027182</p>
             </div>
             
           </div>
@@ -208,23 +213,7 @@
       </div>
     </footer>
     <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
-    <script src="../static/lib/jquery/jquery.min.js"></script>
-    <script src="../static/lib/superfish/hoverIntent.js"></script>
-    <script src="../static/lib/superfish/superfish.min.js"></script>
-    <script src="../static/lib/tether/js/tether.min.js"></script>
-    <script src="../static/lib/stellar/stellar.min.js"></script>
-    <script src="../static/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="../static/lib/counterup/counterup.min.js"></script>
-    <script src="../static/lib/waypoints/waypoints.min.js"></script>
-    <script src="../static/lib/easing/easing.js"></script>
-    <script src="../static/lib/stickyjs/sticky.js"></script>
-    <script src="../static/lib/parallax/parallax.js"></script>
-    <script src="../static/lib/lockfixed/lockfixed.min.js"></script>
-    
-    <!-- Template Specisifc Custom Javascript File -->
-    <script src="../static/js/custom.js"></script>
-    
-    <script src="contactform/contactform.js"></script>
+
     
   </body>
 </html>
