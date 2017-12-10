@@ -3,6 +3,7 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.views.generic import TemplateView
+from django.http import JsonResponse
 
 
 from web.models import Banner, Shop, Type
@@ -57,3 +58,40 @@ def detail(req, shop_id):
     :return:
     """
     return render_to_response("detail.html")
+
+
+def index_api(req):
+    """
+        首页api
+    :param req:
+    :return:
+    """
+    types = Type.objects.all()
+    type_shops = [type.to_json() for type in types]
+    banners = Banner.objects.all()
+    result = {
+        "banners": [banner.to_json() for banner in banners],
+        "types": type_shops
+    }
+    return JsonResponse(result)
+
+
+def query_api(req):
+    """
+        查询api
+    :param req:
+    :return:
+    """
+    type_id = req.GET.get("type_id")
+    if not type_id:
+        type_id = Type.objects.all()[0].id
+    else:
+        type_id = int(type_id)
+    shops = Shop.objects.filter(type_id=type_id)
+    types = Type.objects.all()
+    result = {
+        "shops": [shop.to_json() for shop in shops],
+        "active": {type_id: True},
+        "types": [type.list_json() for type in types]
+    }
+    return JsonResponse(result)

@@ -38,11 +38,18 @@ class Type(models.Model):
     def shops(self):
         return self.shop_set.all()
 
+    def list_json(self):
+        return {
+            "name": self.name,
+            "id": self.id
+        }
+
     def to_json(self):
         index_shops = self.shops()[:3]
         return {
+            "id": self.id,
             "name": self.name,
-            "shops": [shop.to_json() for shop in index_shops]
+            "shops": [shop.list_json() for shop in index_shops]
         }
 
     class Meta:
@@ -75,7 +82,10 @@ class Shop(models.Model):
             列表返回
         :return:
         """
-        pass
+        return {
+            "id": self.id,
+            "name": self.name
+        }
 
     def to_json(self):
         return {
