@@ -91,7 +91,7 @@ def query_api(req):
     types = Type.objects.all()
     result = {
         "shops": [shop.to_json() for shop in shops],
-        "active": {type_id: True},
+        "active": {"id": type_id},
         "types": [type.list_json() for type in types]
     }
     return JsonResponse(result)
