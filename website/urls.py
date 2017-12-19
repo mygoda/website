@@ -22,7 +22,7 @@ URL_ID = "(?P<shop_id>[0-9]+)"
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index_api),
-    url(r'^index/$', index_api),
+    url(r'^api/index/$', index_api),
     url(r'^shops/%s/$' % URL_ID, detail),
-    url(r'^q/$', query_api),
+    url(r'^api/q/$', query_api),
 ]
