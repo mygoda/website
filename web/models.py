@@ -86,13 +86,14 @@ class Shop(models.Model):
             "id": self.id,
             "name": self.name,
             "img": self.img,
+            "url": self.desc,
             "price": 120
         }
 
     def to_json(self):
         return {
             "name": self.name,
-            "desc": self.desc,
+            "url": self.desc,
             "type": self.type.id,
             "img": self.img,
             "price": 5
