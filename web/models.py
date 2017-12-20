@@ -87,7 +87,7 @@ class Shop(models.Model):
             "name": self.name,
             "img": self.img,
             "url": self.desc,
-            "price": 120
+            "price": "五星好评"
         }
 
     def to_json(self):
@@ -96,5 +96,5 @@ class Shop(models.Model):
             "url": self.desc,
             "type": self.type.id,
             "img": self.img,
-            "price": 5
+            "price": "五星好评"
         }
