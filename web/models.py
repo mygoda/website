@@ -95,4 +95,5 @@ class Shop(models.Model):
             "desc": self.desc,
             "type": self.type.id,
             "img": self.img,
+            "price": 5
         }
