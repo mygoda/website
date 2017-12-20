@@ -73,7 +73,7 @@ def index_api(req):
         "banners": [banner.to_json() for banner in banners],
         "types": type_shops
     }
-    return JsonResponse(result)
+    return JsonResponse({"status": "ok", "data": result})
 
 
 def query_api(req):
@@ -94,4 +94,4 @@ def query_api(req):
         "active": {"id": type_id},
         "types": [type.list_json() for type in types]
     }
-    return JsonResponse(result)
+    return JsonResponse({"status": "ok", "data": result})
